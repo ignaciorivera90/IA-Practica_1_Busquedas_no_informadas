@@ -3,8 +3,8 @@
 void menu (int &option) {
   std::cout << "1. Cargar grafo" << std::endl;     
   std::cout << "2. Mostrar la lista de adyasencia " << std::endl;
-  std::cout << "3. Ejecutar algoritmo de búsqueda en amplitud" << std::endl;
-  std::cout << "4. Ejecutar algoritmo de búsqueda en profundidad" << std::endl;          
+  std::cout << "3. Ejecutar algoritmo de búsqueda en amplitud(BFS)" << std::endl;
+  std::cout << "4. Ejecutar algoritmo de búsqueda en profundidad(DFS)" << std::endl;          
   std::cout << "5. Salir del programa" << std::endl;
   std::cout << "Introduce un numero > ";
   std::cin >> option;

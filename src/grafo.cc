@@ -36,18 +36,14 @@ void Grafo::Build(const std::string& grafo_info, int& error_flag) {
   nodos_.reserve(numnodos_);
   for (int i = 0; i < numnodos_; ++i) nodos_.emplace_back(i);
 
-  // 3) leer n(n-1)/2 pesos (pares i<j)
-  const int expected = numnodos_ * (numnodos_ - 1) / 2;
-  int read = 0;
-
+  // 3) leer matriz de adyacencia triangular superior
   for (int i = 0; i < numnodos_; ++i) {
     for (int j = i + 1; j < numnodos_; ++j) {
       double w;
       if (!read_number_token(input, w)) { error_flag = 3; return; } // EOF prematuro
-      if (w != -1.0) {                            // -1 => sin arista
+      if (w >= 0.0) {                            // -1 => sin arista
         AddCost(i, j, w);                         // permite pesos negativos reales
       }
-      ++read;
     }
   }
 
@@ -100,7 +96,7 @@ bool Grafo::AdjacencyList(const std::string& out_path) const {
   return true;
 }
 
-const int Grafo::EdgeCount() const {
+int Grafo::EdgeCount() const {
   long unsigned sum = 0;
   for (int i{0}; i < numnodos_; ++i) sum += static_cast<long unsigned>(nodos_[i].hijos().size());
   return static_cast<int>(sum / 2);

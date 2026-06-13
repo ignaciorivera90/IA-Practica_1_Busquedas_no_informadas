@@ -16,8 +16,8 @@ class Grafo {
   void Update(const std::string& grafo_info, int& error_flag);
   void AddCost(int node1, int node2, double coste);
   const Nodo& nodos(int id_nodo) const { return nodos_[id_nodo]; }
-  const int numnodos() const { return numnodos_; }
-  const int EdgeCount() const;
+  int numnodos() const { return numnodos_; }
+  int EdgeCount() const;
   bool AdjacencyList(const std::string& out_path) const;
  private:
   int numnodos_{0};

@@ -1,7 +1,6 @@
 #include "funciones.h"
 #include "grafo.h"
 #include "busqueda.h"
-#include "main.h"
 
 int main(int argc, char *argv[]) {
   if (argc == 2 && std::string(argv[1]) == "--help") {
@@ -54,9 +53,9 @@ int main(int argc, char *argv[]) {
         if (!HandleGraphBuildError(build_err, in_file)) {
           std::cout << "Error a abrir el archivo: verifique la ruta y la extensión" << std::endl;
         } else {
+          busqueda_prueba.ChangeGrafo(grafo_evaluado);
           std::cout << "Archivo cargado con éxito desde " << in_file << std::endl;
         }
-        busqueda_prueba.ChangeGrafo(grafo_evaluado);
         pressanykey();
         clrscr();
         break;
@@ -85,6 +84,7 @@ int main(int argc, char *argv[]) {
         } else {
           std::cout << "Revise el resultado en " << out_file << std::endl;
         }
+
         pressanykey();
         clrscr();
         break;
@@ -99,7 +99,12 @@ int main(int argc, char *argv[]) {
         std::cin >> final_dfs;
         std::cout << std::endl;
 
-        //busqueda
+        if (!busqueda_prueba.DFS(inicio_dfs, final_dfs, out_file)) {
+          std::cerr << "Error: No se pudo realizar la busqueda en profundidad" << std::endl;
+        } else {
+          std::cout << "Revise el resultado en " << out_file << std::endl;
+        }
+
         pressanykey();
         clrscr();
         break;
