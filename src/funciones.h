@@ -1,3 +1,16 @@
+// Universidad de La Laguna
+// Escuela Superior de Ingeniería y Tecnología
+// Grado en Ingeniería Informática
+// Asignatura: Inteligencia Artificial
+// Curso: 2025-2026
+// Práctica 1: Búsquedas no informadas
+//
+// Autor: Ignacio Andrés Rivera Barrientos
+// Correo: alu0101675053@ull.edu.es
+// Fecha: 10/06/2026
+// Archivo funciones.h: declaración de funciones auxiliares utilizadas
+//                      para la interacción con el usuario, validación
+//                      de rutas y gestión de errores.
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
@@ -11,6 +24,9 @@
 #include <string>
 #include <system_error>
 
+/**
+ * @brief Tipos posibles de ruta encontrados en el sistema de archivos.
+ */
 enum class PathType {
   NotFound,
   RegularFile,
